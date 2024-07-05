@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "907931255654",
+    "project_id": "expense-bc15f",
+    "storage_bucket": "expense-bc15f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907931255654:android:01bace42261fc8b359bea7",
+        "android_client_info": {
+          "package_name": "com.example.expense"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgAa8AEKe7GT5WfDQqxhZRYPffm3tyLkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
