@@ -1,8 +1,9 @@
-import 'package:expense/screens/signin_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:expense/screens/main_screen.dart';
+import 'package:expense/screens/stats/stats.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -11,55 +12,74 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int index = 0;
+  late Color selectedItem= Colors.blue;
+  Color unselectedItem =Colors.grey;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(146, 118, 212, 1),
-        leading: const Icon(
-          Icons.person_2_rounded,
-          size: 50,
-          color: Colors.white,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.vertical(
+          top: Radius.circular(30)
         ),
-        title: const Text(
-          'BUDGET-BLOOMER',
-          style: TextStyle(color: Colors.white),
+        child: BottomNavigationBar(
+          onTap: (value){
+            setState(() {
+              index=value;
+            });
+
+
+          },
+
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+            //selectedItemColor: Colors.red,
+          elevation: 3,
+          items: [
+            BottomNavigationBarItem(
+                icon:Icon(CupertinoIcons.home,
+                color: index== 0 ? selectedItem:unselectedItem
+                ),
+              label: 'Home'
+
+            ),
+           BottomNavigationBarItem(
+               icon: Icon(CupertinoIcons.graph_square_fill,
+                   color: index == 1 ? selectedItem:unselectedItem),
+             label: 'Stats'
+           )
+
+          ]
         ),
-        actions: const <Widget>[
-          Icon(
-            Icons.more_vert,
-            size: 45,
-            color: Colors.white,
-          ),
-        ],
-      ),
-      body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut().then((value) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignInScreen()));
-              });
-            },
-            child: const Text("LogOut")),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.graph_square_fill), label: 'Stats'),
-        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF5E61F4),
-        onPressed: () {},
+          onPressed: () {},
         shape: const CircleBorder(),
-        child: const Icon(CupertinoIcons.add),
+        child: Container(
+          width: 60,
+          height: 60,
+
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+                colors:[
+                  Theme.of(context).colorScheme.tertiary ,
+                  Theme.of(context).colorScheme.secondary ,
+                  Theme.of(context).colorScheme.primary ,
+            ],
+              transform: const GradientRotation(pi/4),
+            )
+          ),
+          child: const Icon(
+            CupertinoIcons.add
+          ),
+        ),
       ),
+      body: index==0
+        ?MainScreen()
+          :StatScreen()
     );
   }
 }

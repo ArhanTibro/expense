@@ -19,9 +19,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "BUDGET-BLOOMERS",
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-        useMaterial3: true,
-      ),
+          colorScheme:const ColorScheme.light(
+              primary: Color(0xFF00B2E7),
+              secondary: Color(0xFFE064F7),
+              tertiary: Color(0xFFFF8D6C),
+              outline: Colors.grey)),
       home: const SignInScreen(),
     );
   }
