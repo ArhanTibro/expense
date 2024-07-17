@@ -1,5 +1,5 @@
 import 'package:expense/reusable_widgets/reusable_widget.dart';
-import 'package:expense/screens/home_screen.dart';
+import 'package:expense/screens/home/home_screen.dart';
 import 'package:expense/screens/reset_password.dart';
 import 'package:expense/screens/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -34,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 20, MediaQuery.of(context).size.height * 0.2, 20, 0),
             child: Column(
               children: <Widget>[
-                logoWidget("images/logo.png"),
+                logoWidget("assets/logo.png"),
                 const SizedBox(
                   height: 30,
                 ),

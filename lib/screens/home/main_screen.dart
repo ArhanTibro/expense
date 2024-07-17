@@ -245,7 +245,7 @@ class MainScreen extends StatelessWidget {
                                         fontSize: 14,
                                         color: Theme.of(context)
                                             .colorScheme
-                                            .onBackground,
+                                            .onSurface,
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ],
@@ -259,7 +259,7 @@ class MainScreen extends StatelessWidget {
                                         fontSize: 14,
                                         color: Theme.of(context)
                                             .colorScheme
-                                            .onBackground,
+                                            .onSurface,
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(

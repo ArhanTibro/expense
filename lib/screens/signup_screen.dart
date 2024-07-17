@@ -1,4 +1,4 @@
-import 'package:expense/screens/home_screen.dart';
+import 'package:expense/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:expense/reusable_widgets/reusable_widget.dart';

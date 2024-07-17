@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:expense/screens/main_screen.dart';
+import 'package:expense/screens/home/main_screen.dart';
 import 'package:expense/screens/stats/stats.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -78,8 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: index==0
-        ?MainScreen()
-          :StatScreen()
+        ?const MainScreen()
+          :const StatScreen()
     );
   }
 }
